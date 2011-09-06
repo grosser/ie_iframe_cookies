@@ -18,7 +18,7 @@ Usage
 To cookie-tag users as 'iframe-using', add this to all actions rendered inside IFrames.<br/>
 (only IE users are tagged)
 
-    before_filter :ie_iframe_cookies! # :only => [:foo, :bar]
+    before_filter :normal_cookies_for_ie_in_iframes! # :only => [:foo, :bar]
 
 Author
 ======
