@@ -7,22 +7,27 @@ module ActionController
     before_filter :normal_cookies_for_ie_in_iframes
 
     def normal_cookies_for_ie_in_iframes!
-      enable_normal_cookies_for_ie_in_iframes(:force => true)
-      cookies["using_iframes_in_ie"] = true
+      if request.ie_iframe_cookies_browser_is_ie?
+        normal_cookies_for_ie_in_iframes(:force => true)
+        cookies["using_iframes_in_ie"] = true
+      end
     end
 
     def normal_cookies_for_ie_in_iframes(options={})
-      headers['P3P'] = 'CP="ALL DSP COR CURa ADMa DEVa OUR IND COM NAV"' if request.wants_normal_cookies_for_ie_in_iframes? or options[:force]
+      headers['P3P'] = 'CP="ALL DSP COR CURa ADMa DEVa OUR IND COM NAV"' if request.normal_cookies_for_ie_in_iframes? or options[:force]
     end
   end
 
   class Request
-    alias_method :etag_matches_without_ie_iframe_cookies?, :etag_matches?
-
-    def normal_cookies_for_ie_in_iframes?
-      (env['HTTP_USER_AGENT'] || "").include?("MSIE") and cookies["using_iframes_in_ie"]
+    def ie_iframe_cookies_browser_is_ie?
+      (env['HTTP_USER_AGENT'] || "").include?("MSIE")
     end
 
+    def normal_cookies_for_ie_in_iframes?
+      ie_iframe_cookies_browser_is_ie? and cookies["using_iframes_in_ie"]
+    end
+
+    alias_method :etag_matches_without_ie_iframe_cookies?, :etag_matches?
     def etag_matches?(etag)
       not normal_cookies_for_ie_in_iframes? and etag_matches_without_ie_iframe_cookies?(etag)
     end
