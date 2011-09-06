@@ -1,4 +1,9 @@
-Rails: Enabled cookies inside IFrames for IE via p3p headers
+Rails: Enabled cookies inside IFrames for IE via P3P headers.<br/>
+
+IFrames in IE only get the same cookies as normal pages when P3P headers are added<br/>
+=> 'iframe-using' IE users get P3P headers on every request<br/>
+ETag pages do not get P3P headers<br/>
+=> 'iframe-using' IE users do not get ETags
 
 Install
 =======
@@ -10,10 +15,15 @@ Or
 
 Usage
 =====
-    CODE_EXAMPLE
+To cookie-tag users as 'iframe-using', add this to all actions rendered inside IFrames.<br/>
+(only IE users are tagged)
+
+    before_filter :ie_iframe_cookies! # :only => [:foo, :bar]
 
 Author
 ======
+Adapted from [Rob Anderson](http://robanderson123.wordpress.com/2011/02/25/p3p-header-hell) with help from [Sascha Depold](https://github.com/sdepold).
+
 [Michael Grosser](http://grosser.it)<br/>
 michael@grosser.it<br/>
 Hereby placed under public domain, do what you want, just do not hold me accountable...
