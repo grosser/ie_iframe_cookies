@@ -20,9 +20,9 @@ To cookie-tag users as 'iframe-using', add this to all actions rendered inside I
 
     before_filter :normal_cookies_for_ie_in_iframes! # :only => [:foo, :bar]
 
-Author
-======
-Adapted from [Rob Anderson](http://robanderson123.wordpress.com/2011/02/25/p3p-header-hell) with help from [Sascha Depold](https://github.com/sdepold).
+Authors
+=======
+[Sascha Depold](https://github.com/sdepold)
 
 [Michael Grosser](http://grosser.it)<br/>
 michael@grosser.it<br/>
