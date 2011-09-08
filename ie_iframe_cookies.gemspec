@@ -5,12 +5,24 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ie_iframe_cookies}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Grosser"]
-  s.date = %q{2011-09-06}
+  s.date = %q{2011-09-08}
   s.email = %q{michael@grosser.it}
+  s.files = [
+    "Gemfile",
+    "Gemfile.lock",
+    "Rakefile",
+    "Readme.md",
+    "VERSION",
+    "ie_iframe_cookies.gemspec",
+    "init.rb",
+    "lib/ie_iframe_cookies.rb",
+    "test/ie_iframe_cookies_test.rb",
+    "test/test_helper.rb"
+  ]
   s.homepage = %q{http://github.com/grosser/ie_iframe_cookies}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
