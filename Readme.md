@@ -2,8 +2,8 @@ Rails: Enabled cookies inside IFrames for IE via P3P headers.<br/>
 
 IFrames in IE only get the same cookies as normal pages when P3P headers are added<br/>
 => 'iframe-using' IE users get P3P headers on every request<br/>
-ETag pages do not get P3P headers<br/>
-=> 'iframe-using' IE users do not get ETags
+304 Not modified pages do not get P3P headers (via ETag)<br/>
+=> 'iframe-using' IE users do not get 304
 
 Install
 =======
