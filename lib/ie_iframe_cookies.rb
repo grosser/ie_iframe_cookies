@@ -32,12 +32,4 @@ module ActionController
       not normal_cookies_for_ie_in_iframes? and etag_matches_without_ie_iframe_cookies?(etag)
     end
   end
-
-  class Response
-    alias_method :etag_without_ie_iframe_cookies?, :etag?
-
-    def etag?
-      request.normal_cookies_for_ie_in_iframes? or etag_without_ie_iframe_cookies?
-    end
-  end
 end
