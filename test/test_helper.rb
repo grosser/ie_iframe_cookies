@@ -26,6 +26,12 @@ if ActionPack::VERSION::MAJOR > 2
       ROUTES
     end
   end
+
+  class ActionController::TestRequest
+    def cookie_jar
+      cookies
+    end
+  end
 else
   require 'action_controller/test_process'
   ActionController::Routing::Routes.reload rescue nil

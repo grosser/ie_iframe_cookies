@@ -65,7 +65,7 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_ie
     get :activate
     is_ok!
-    assert_equal "true", cookies['using_iframes_in_ie']
+    assert_equal "true", cookies['using_iframes_in_ie'].to_s
   end
 
   test "does not set tracking cookie for nice users" do
