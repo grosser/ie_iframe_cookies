@@ -91,6 +91,6 @@ PLATFORMS
 
 DEPENDENCIES
   jeweler
-  rails (~> 3)
+  rails
   rake
   redgreen

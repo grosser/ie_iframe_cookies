@@ -20,7 +20,15 @@ module ActionController
   end
 end
 
-module ActionDispatch::Http::Cache::Request
+if ActionPack::VERSION::MAJOR > 2
+  request = ActionDispatch::Http::Cache::Request
+  method = :module_eval
+else
+  request = ActionController::Request
+  method = :class_eval
+end
+
+request.send(method) do
   def ie_iframe_cookies_browser_is_ie?
     (env['HTTP_USER_AGENT'] || "").include?("MSIE")
   end
