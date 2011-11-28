@@ -22,6 +22,10 @@ To cookie-tag users as 'iframe-using', add this to all actions rendered inside I
 
 Authors
 =======
+
+### [Contributors](http://github.com/grosser/ie_iframe_cookies/contributors)
+ - [Eric Harrison](https://github.com/fuelxc)
+
 [Sascha Depold](https://github.com/sdepold)
 
 [Michael Grosser](http://grosser.it)<br/>
