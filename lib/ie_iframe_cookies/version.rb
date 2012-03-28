@@ -1,3 +1,3 @@
 module IEIframeCookies
-  VERSION = Version = "0.1.2"
+  VERSION = Version = "0.1.3"
 end

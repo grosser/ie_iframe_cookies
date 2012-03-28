@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ie_iframe_cookies (0.1.2)
+    ie_iframe_cookies (0.1.3)
 
 GEM
   remote: http://rubygems.org/
