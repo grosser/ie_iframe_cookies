@@ -1,4 +1,4 @@
-require 'test/test_helper'
+require './test/test_helper'
 
 class IETestController < ActionController::Base
   before_filter :normal_cookies_for_ie_in_iframes!, :only => :activate

@@ -1,7 +1,7 @@
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib'
-  test.pattern = 'test/**/*_test.rb'
+  test.pattern = 'test/ie_iframe_cookies_test.rb'
   test.verbose = true
 end
 

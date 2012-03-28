@@ -45,4 +45,4 @@ $LOAD_PATH << 'lib'
 # when Rails is defined, backtrace_cleaner is used, when assert fails
 RAILS_ENV='development'
 
-require "init"
+require "./init"
