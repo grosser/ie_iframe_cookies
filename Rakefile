@@ -6,9 +6,9 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :default do
-  sh "RAILS=2.3.13 && (bundle || bundle install) && bundle exec rake test"
-  sh "RAILS=3.0.12 && (bundle || bundle install) && exec rake test"
-  sh "RAILS=3.1.4 && (bundle || bundle install) && exec rake test"
+  %w[2.3.13 3.0.12 3.1.4 3.2.2].each do |rails_version|
+    sh "RAILS=#{rails_version} && (bundle || bundle install) && bundle exec rake test"
+  end
   sh "git checkout Gemfile.lock"
 end
 
