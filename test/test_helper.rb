@@ -40,6 +40,7 @@ end
 require 'test/unit'
 
 $LOAD_PATH << 'lib'
+require 'ie_iframe_cookies/version'
 
 # fake rails env for initialisation
 # when Rails is defined, backtrace_cleaner is used, when assert fails

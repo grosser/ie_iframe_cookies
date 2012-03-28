@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    ie_iframe_cookies (0.1.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,13 +37,8 @@ GEM
     arel (2.2.1)
     builder (3.0.0)
     erubis (2.7.0)
-    git (1.2.5)
     hike (1.2.1)
     i18n (0.6.0)
-    jeweler (1.6.4)
-      bundler (~> 1.0)
-      git (>= 1.2.5)
-      rake
     json (1.6.1)
     mail (2.3.0)
       i18n (>= 0.4.0)
@@ -89,6 +89,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jeweler
+  ie_iframe_cookies!
   rails
   rake

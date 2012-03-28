@@ -1,7 +1,3 @@
-class IEIframeCookies
-  VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
-end
-
 require 'action_pack'
 
 module ActionController
