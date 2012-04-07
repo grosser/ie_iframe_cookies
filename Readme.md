@@ -20,6 +20,10 @@ To cookie-tag users as 'iframe-using', add this to all actions rendered inside I
 
     before_filter :normal_cookies_for_ie_in_iframes! # :only => [:foo, :bar]
 
+TIPS
+====
+ - Problems with Safari? try [this](http://saizai.livejournal.com/897522.html) or [that](http://stackoverflow.com/questions/2691864/facebook-iframe-app-with-multiple-pages-in-safari-session-variables-not-persisti/2725790#2725790)
+
 Authors
 =======
 
