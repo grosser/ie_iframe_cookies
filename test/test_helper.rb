@@ -44,4 +44,4 @@ require 'ie_iframe_cookies/version'
 # when Rails is defined, backtrace_cleaner is used, when assert fails
 RAILS_ENV = 'development'
 
-require "./init"
+require File.expand_path("../../init", __FILE__)

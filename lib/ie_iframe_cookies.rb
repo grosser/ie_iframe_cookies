@@ -12,7 +12,12 @@ module ActionController
     end
 
     def normal_cookies_for_ie_in_iframes(options={})
-      headers['P3P'] = 'CP="ALL DSP COR CURa ADMa DEVa OUR IND COM NAV"' if request.normal_cookies_for_ie_in_iframes? or options[:force]
+      if request.normal_cookies_for_ie_in_iframes? or options[:force]
+        headers['P3P'] = 'CP="ALL DSP COR CURa ADMa DEVa OUR IND COM NAV"'
+        if request.get? or request.head?
+          fresh_when :etag => rand(1..100_000_000), :last_modified => Time.now
+        end
+      end
     end
   end
 end

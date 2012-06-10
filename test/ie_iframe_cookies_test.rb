@@ -1,4 +1,4 @@
-require './test/test_helper'
+require File.expand_path('../test_helper', __FILE__)
 
 class IETestController < ActionController::Base
   before_filter :normal_cookies_for_ie_in_iframes!, :only => :activate
@@ -26,6 +26,8 @@ end
 
 class IEIFrameCookiesTest < ActionController::TestCase
   tests IETestController
+
+  DEFAULT_ETAG = ActionPack::VERSION::MAJOR > 2 ? nil : '"e0aa021e21dddbd6d8cecec71e9cf564"'
 
   setup do
     @request = ActionController::TestRequest.new
@@ -72,6 +74,41 @@ class IEIFrameCookiesTest < ActionController::TestCase
     get :activate
     is_ok!
     assert_equal nil, cookies['using_iframes_in_ie']
+  end
+
+  # etag for get requests to trick rack::conditionalget
+  test "it adds a always-fresh ETAG for tracked IE users on get, so rack thinks its fresh" do
+    set_tracked
+    set_ie
+    get :visit
+    is_ok!
+    old = @response.headers['ETag']
+
+    get :visit
+    is_ok!
+    assert_not_equal old, @response.headers['ETag']
+  end
+
+  test "it does not add an etag if the request is not get" do
+    set_tracked
+    set_ie
+    post :visit
+    is_ok!
+    assert_equal DEFAULT_ETAG, @response.headers['ETag']
+  end
+
+  test "it does not add an etag if non ie" do
+    set_tracked
+    get :visit
+    is_ok!
+    assert_equal DEFAULT_ETAG, @response.headers['ETag']
+  end
+
+  test "it does not add an etag if not tracked" do
+    set_ie
+    get :visit
+    is_ok!
+    assert_equal DEFAULT_ETAG, @response.headers['ETag']
   end
 
   # returning P3P headers
