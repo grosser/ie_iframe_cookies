@@ -25,10 +25,11 @@ class IETestController < ActionController::Base
 end
 
 class IEIFrameCookiesTest < ActionController::TestCase
-  def setup
-    @controller = IETestController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+  tests IETestController
+
+  setup do
+    @request = ActionController::TestRequest.new
+    @routes = ROUTES
   end
 
   def is_ok!
