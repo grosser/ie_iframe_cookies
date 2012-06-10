@@ -29,7 +29,6 @@ class IEIFrameCookiesTest < ActionController::TestCase
 
   setup do
     @request = ActionController::TestRequest.new
-    @routes = ROUTES
   end
 
   def is_ok!

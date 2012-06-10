@@ -12,14 +12,29 @@ if ActionPack::VERSION::MAJOR > 2
   end
   ROUTES.finalize!
 
-  class ActionController::TestRequest
+  # get routes working without having to mess in actual test
+  ActionController::TestCase.setup do
+    @routes = ROUTES
+  end
+
+  ActionController::TestRequest.class_eval do
     def cookie_jar
+      cookies.instance_variable_set(:@set_cookies, {})
+      def cookies.recycle!
+      end
       cookies
     end
   end
 else
   require 'action_controller/test_process'
   ActionController::Routing::Routes.reload rescue nil
+
+  # do not try to load helpers
+  ActionController::Helpers::ClassMethods.class_eval do
+    def inherited_with_helper(*args)
+      inherited_without_helper(*args)
+    end
+  end
 end
 
 $LOAD_PATH << 'lib'

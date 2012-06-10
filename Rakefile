@@ -7,9 +7,9 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-task :default do
-  %w[2.3.13 3.0.12 3.1.4 3.2.2].each do |rails_version|
-    sh "RAILS=#{rails_version} && (bundle || bundle install) && bundle exec rake test"
+task :default do # run without bundle exec !
+  %w[2.3.14 3.1.4 3.2.5].each do |rails_version|
+    sh "export RAILS=#{rails_version} && (bundle check || bundle) && bundle exec rake test"
   end
   sh "git checkout Gemfile.lock"
 end
