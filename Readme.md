@@ -7,11 +7,8 @@ IFrames in IE only get the same cookies as normal pages when P3P headers are add
 
 Install
 =======
-    sudo gem install ie_iframe_cookies
-Or
 
-    rails plugin install git://github.com/grosser/ie_iframe_cookies.git
-
+    gem install ie_iframe_cookies
 
 Usage
 =====
