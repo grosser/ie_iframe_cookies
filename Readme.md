@@ -31,4 +31,5 @@ Authors
 
 [Michael Grosser](http://grosser.it)<br/>
 michael@grosser.it<br/>
-License: MIT
+License: MIT<br/>
+[![Build Status](https://travis-ci.org/grosser/ie_iframe_cookies.png)](https://travis-ci.org/grosser/ie_iframe_cookies)
