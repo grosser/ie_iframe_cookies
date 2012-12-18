@@ -1,7 +1,8 @@
 source :rubygems
 gemspec
 
-gem 'rails', ENV['RAILS']
-gem 'rake'
+gem 'appraisal'
 gem 'bump'
-gem 'test-unit', '2.5.3'
+gem 'rails'
+gem 'rake'
+gem 'test-unit', '>= 2.5.3'

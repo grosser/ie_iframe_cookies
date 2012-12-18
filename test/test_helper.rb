@@ -39,9 +39,8 @@ end
 
 $LOAD_PATH << 'lib'
 require 'ie_iframe_cookies/version'
+require 'ie_iframe_cookies'
 
 # fake rails env for initialisation
 # when Rails is defined, backtrace_cleaner is used, when assert fails
 RAILS_ENV = 'development'
-
-require File.expand_path("../../init", __FILE__)
