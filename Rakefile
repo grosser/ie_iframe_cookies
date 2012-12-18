@@ -8,7 +8,7 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :default do
-  %w[2.3.14 3.1.5 3.2.5].each do |rails_version|
+  %w[2.3.14 3.1.8 3.2.9].each do |rails_version|
     sh "export RAILS=#{rails_version} && (bundle check || bundle) && bundle exec rake test"
   end
   sh "git checkout Gemfile.lock"
