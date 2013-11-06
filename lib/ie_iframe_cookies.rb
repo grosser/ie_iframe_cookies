@@ -32,7 +32,7 @@ end
 
 request.send(method) do
   def ie_iframe_cookies_browser_is_ie?
-    (env['HTTP_USER_AGENT'] || "").include?("MSIE")
+    (env['HTTP_USER_AGENT'] || "").include?("MSIE") || (env['HTTP_USER_AGENT'] || "").include?("Trident")
   end
 
   def normal_cookies_for_ie_in_iframes?
