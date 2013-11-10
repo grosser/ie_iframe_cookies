@@ -6,6 +6,7 @@ gem "appraisal"
 gem "bump"
 gem "rake"
 gem "minitest", "~> 4.0"
+gem "wwtd", ">= 0.1.8"
 gem "rails", "~> 2.3.18"
 
 gemspec :path=>"../"

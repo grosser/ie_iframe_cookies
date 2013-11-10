@@ -21,6 +21,7 @@ GEM
       rake
     bump (0.5.0)
     minitest (4.7.5)
+    parallel (0.9.0)
     rack (1.1.6)
     rails (2.3.18)
       actionmailer (= 2.3.18)
@@ -30,6 +31,8 @@ GEM
       activesupport (= 2.3.18)
       rake (>= 0.8.3)
     rake (10.1.0)
+    wwtd (0.1.8)
+      parallel
 
 PLATFORMS
   ruby
@@ -41,3 +44,4 @@ DEPENDENCIES
   minitest (~> 4.0)
   rails (~> 2.3.18)
   rake
+  wwtd (>= 0.1.8)
