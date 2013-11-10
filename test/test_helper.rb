@@ -1,7 +1,7 @@
+require 'minitest/autorun'
 require 'active_support/all'
 require 'action_pack'
 require 'action_controller'
-require 'test/unit'
 
 if ActionPack::VERSION::MAJOR > 2
   require 'action_dispatch/testing/test_process'
