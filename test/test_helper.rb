@@ -1,3 +1,4 @@
+require 'active_support/all'
 require 'action_pack'
 require 'action_controller'
 require 'test/unit'
