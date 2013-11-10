@@ -8,4 +8,5 @@ matrix:
       gemfile: gemfiles/rails_2.gemfile
     - rvm: ree
       gemfile: gemfiles/rails_4.gemfile
+bundler_args: ""
 script: bundle exec rake test
