@@ -9,7 +9,7 @@ if ActionPack::VERSION::MAJOR > 2
 
   ROUTES = ActionDispatch::Routing::RouteSet.new
   ROUTES.draw do
-    match ':controller(/:action(/:id(.:format)))'
+    match ':controller(/:action(/:id(.:format)))', :via => :any
   end
   ROUTES.finalize!
 
@@ -24,6 +24,12 @@ if ActionPack::VERSION::MAJOR > 2
       def cookies.recycle!
       end
       cookies
+    end
+  end
+
+  ActionController::Base.class_eval do
+    def _routes
+      ROUTES
     end
   end
 else
