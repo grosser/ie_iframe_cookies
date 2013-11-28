@@ -1,7 +1,7 @@
 PATH
   remote: /Users/mgrosser/Code/tools/ie_iframe_cookies
   specs:
-    ie_iframe_cookies (0.1.4)
+    ie_iframe_cookies (0.1.5)
 
 GEM
   remote: https://rubygems.org/
@@ -18,6 +18,8 @@ GEM
     activesupport (2.3.18)
     bump (0.5.0)
     minitest (4.7.5)
+    minitest-rg (1.1.1)
+      minitest (< 5.0)
     rack (1.1.6)
     rails (2.3.18)
       actionmailer (= 2.3.18)
@@ -36,6 +38,7 @@ DEPENDENCIES
   bump
   ie_iframe_cookies!
   minitest (~> 4.0)
+  minitest-rg
   rails (~> 2.3.18)
   rake
   wwtd (>= 0.3.2)

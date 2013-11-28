@@ -13,5 +13,6 @@ Gem::Specification.new name, IEIframeCookies::VERSION do |s|
   s.add_development_dependency 'rails'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest', '~> 4.0'
+  s.add_development_dependency 'minitest-rg'
   s.add_development_dependency 'wwtd', '>= 0.3.2'
 end
