@@ -9,4 +9,9 @@ Gem::Specification.new name, IEIframeCookies::VERSION do |s|
   s.homepage = "http://github.com/grosser/#{name}"
   s.files = `git ls-files`.split("\n")
   s.license = "MIT"
+  s.add_development_dependency 'bump'
+  s.add_development_dependency 'rails'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'minitest', '~> 4.0'
+  s.add_development_dependency 'wwtd', '>= 0.3.2'
 end

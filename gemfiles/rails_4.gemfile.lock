@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/mgrosser/code/tools/ie_iframe_cookies
+  remote: /Users/mgrosser/Code/tools/ie_iframe_cookies
   specs:
     ie_iframe_cookies (0.1.4)
 
@@ -30,9 +30,6 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    appraisal (0.5.2)
-      bundler
-      rake
     arel (4.0.1)
     atomic (1.1.14)
     builder (3.1.4)
@@ -46,7 +43,6 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
-    parallel (0.9.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -82,17 +78,15 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    wwtd (0.1.8)
-      parallel
+    wwtd (0.4.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  appraisal
   bump
   ie_iframe_cookies!
   minitest (~> 4.0)
   rails (~> 4.0.1)
   rake
-  wwtd (>= 0.1.8)
+  wwtd (>= 0.3.2)

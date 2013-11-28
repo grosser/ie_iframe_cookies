@@ -3,7 +3,6 @@ require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'bump/tasks'
 require 'wwtd/tasks'
-require 'appraisal'
 
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib'
@@ -11,4 +10,4 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-task :default => ["appraisal:install", "wwtd"]
+task :default => :wwtd

@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/mgrosser/code/tools/ie_iframe_cookies
+  remote: /Users/mgrosser/Code/tools/ie_iframe_cookies
   specs:
     ie_iframe_cookies (0.1.4)
 
@@ -16,12 +16,8 @@ GEM
     activeresource (2.3.18)
       activesupport (= 2.3.18)
     activesupport (2.3.18)
-    appraisal (0.5.2)
-      bundler
-      rake
     bump (0.5.0)
     minitest (4.7.5)
-    parallel (0.9.0)
     rack (1.1.6)
     rails (2.3.18)
       actionmailer (= 2.3.18)
@@ -31,17 +27,15 @@ GEM
       activesupport (= 2.3.18)
       rake (>= 0.8.3)
     rake (10.1.0)
-    wwtd (0.1.8)
-      parallel
+    wwtd (0.4.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  appraisal
   bump
   ie_iframe_cookies!
   minitest (~> 4.0)
   rails (~> 2.3.18)
   rake
-  wwtd (>= 0.1.8)
+  wwtd (>= 0.3.2)
