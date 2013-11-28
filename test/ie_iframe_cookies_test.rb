@@ -70,6 +70,13 @@ class IEIFrameCookiesTest < ActionController::TestCase
     assert_equal "true", cookies['using_iframes_in_ie'].to_s
   end
 
+  test "it sets tracking cookie for IE11" do
+    @request.env['HTTP_USER_AGENT'] = "Some Trident thingy"
+    get :activate
+    is_ok!
+    assert_equal "true", cookies['using_iframes_in_ie'].to_s
+  end
+
   test "does not set tracking cookie for nice users" do
     get :activate
     is_ok!
