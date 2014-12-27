@@ -179,7 +179,7 @@ class IEIFrameCookiesTest < ActionController::TestCase
   test "is modified via modified since for tracked ie users" do
     set_tracked
     set_ie
-    set_modified(Time.now)
+    set_modified(0.minutes.ago)
     get :with_modified
     assert_is_ok!
   end
