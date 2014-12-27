@@ -12,9 +12,9 @@ class IETestController < ActionController::Base
   end
 
   def with_etag
-    if stale?(:etag => 'foo')
-      render :text => 'OK'
-    end
+    options = {:etag => 'foo'}
+    options[:template] = false if ActiveSupport::VERSION::STRING >= "4.2.0" # ignore template etagger
+    render :text => 'OK' if stale?(options)
   end
 
   def with_modified
@@ -179,7 +179,7 @@ class IEIFrameCookiesTest < ActionController::TestCase
   test "is modified via modified since for tracked ie users" do
     set_tracked
     set_ie
-    set_modified(0.minutes.ago)
+    set_modified(Time.now)
     get :with_modified
     assert_is_ok!
   end
