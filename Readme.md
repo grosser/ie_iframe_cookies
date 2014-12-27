@@ -8,14 +8,18 @@ IFrames in IE only get the same cookies as normal pages when P3P headers are add
 Install
 =======
 
-    gem install ie_iframe_cookies
+```Bash
+gem install ie_iframe_cookies
+```
 
 Usage
 =====
 To cookie-tag users as 'iframe-using', add this to all actions rendered inside IFrames.<br/>
 (only IE users are tagged)
 
-    before_filter :normal_cookies_for_ie_in_iframes! # :only => [:foo, :bar]
+```Ruby
+before_action :normal_cookies_for_ie_in_iframes! # only: [:foo, :bar]
+```
 
 TIPS
 ====
@@ -24,7 +28,7 @@ TIPS
 Authors
 =======
 
-### [Contributors](http://github.com/grosser/ie_iframe_cookies/contributors)
+### [Contributors](https://github.com/grosser/ie_iframe_cookies/contributors)
  - [Eric Harrison](https://github.com/fuelxc)
 
 [Sascha Depold](https://github.com/sdepold)
