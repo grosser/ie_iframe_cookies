@@ -1,3 +1,4 @@
 source "https://rubygems.org"
 gem "rails", "~> 3.2.15"
+gem "minitest", "~> 4.7.5"
 gemspec :path=>"../"
