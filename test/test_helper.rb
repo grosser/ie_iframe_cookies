@@ -23,5 +23,7 @@ ActionController::Base.class_eval do
   end
 end
 
+ActiveSupport.test_order = :random if ActiveSupport::VERSION::STRING >= "4.2.0"
+
 require 'ie_iframe_cookies/version'
 require 'ie_iframe_cookies'

@@ -33,12 +33,12 @@ class IEIFrameCookiesTest < ActionController::TestCase
     @request = ActionController::TestRequest.new
   end
 
-  def is_ok!
+  def assert_is_ok!
     assert_equal 'OK', @response.body
     assert_equal 200, @response.status.to_i
   end
 
-  def is_not_modified!
+  def assert_is_not_modified!
     assert_equal 304, @response.status.to_i
   end
 
@@ -66,20 +66,20 @@ class IEIFrameCookiesTest < ActionController::TestCase
   test "it sets tracking cookie for IE users" do
     set_ie
     get :activate
-    is_ok!
+    assert_is_ok!
     assert_equal "true", cookies['using_iframes_in_ie'].to_s
   end
 
   test "it sets tracking cookie for IE11" do
     @request.env['HTTP_USER_AGENT'] = "Some Trident thingy"
     get :activate
-    is_ok!
+    assert_is_ok!
     assert_equal "true", cookies['using_iframes_in_ie'].to_s
   end
 
   test "does not set tracking cookie for nice users" do
     get :activate
-    is_ok!
+    assert_is_ok!
     assert_equal nil, cookies['using_iframes_in_ie']
   end
 
@@ -88,11 +88,11 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_tracked
     set_ie
     get :visit
-    is_ok!
+    assert_is_ok!
     old = @response.headers['ETag']
 
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_not_equal old, @response.headers['ETag']
   end
 
@@ -100,21 +100,21 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_tracked
     set_ie
     post :visit
-    is_ok!
+    assert_is_ok!
     assert_equal DEFAULT_ETAG, @response.headers['ETag']
   end
 
   test "it does not add an etag if non ie" do
     set_tracked
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_equal DEFAULT_ETAG, @response.headers['ETag']
   end
 
   test "it does not add an etag if not tracked" do
     set_ie
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_equal DEFAULT_ETAG, @response.headers['ETag']
   end
 
@@ -123,21 +123,21 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_tracked
     set_ie
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_equal 'CP="ALL DSP COR CURa ADMa DEVa OUR IND COM NAV"', @response.headers['P3P']
   end
 
   test "it does not add P3P headers for un-tracked IE users" do
     set_ie
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_equal nil, @response.headers['P3P']
   end
 
   test "it does not add P3P headers for tracked nice users" do
     set_tracked
     get :visit
-    is_ok!
+    assert_is_ok!
     assert_equal nil, @response.headers['P3P']
   end
 
@@ -146,14 +146,14 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_etag
     set_tracked
     get :with_etag
-    is_not_modified!
+    assert_is_not_modified!
   end
 
   test "is not modified for un-tracked ie users" do
     set_etag
     set_tracked
     get :with_etag
-    is_not_modified!
+    assert_is_not_modified!
   end
 
   test "is modified for tracked ie users" do
@@ -161,19 +161,19 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_tracked
     set_ie
     get :with_etag
-    is_ok!
+    assert_is_ok!
   end
 
   test "is not modified via modified since" do
     set_modified(0.minutes.ago)
     get :with_modified
-    is_not_modified!
+    assert_is_not_modified!
   end
 
   test "is modified via modified since" do
     set_modified(2.minutes.ago)
     get :with_modified
-    is_ok!
+    assert_is_ok!
   end
 
   test "is modified via modified since for tracked ie users" do
@@ -181,6 +181,6 @@ class IEIFrameCookiesTest < ActionController::TestCase
     set_ie
     set_modified(0.minutes.ago)
     get :with_modified
-    is_ok!
+    assert_is_ok!
   end
 end
