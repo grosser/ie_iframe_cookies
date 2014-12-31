@@ -1,5 +1,25 @@
 Rails: Enabled cookies inside IFrames for IE via P3P headers.<br/>
 
+# Deprecated / Unmaintained
+
+use something like this instead:
+
+```Ruby
+class AllowCookiesInIframesMiddleware
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    response, headers, body = @app.call(env)
+    headers['P3P'] = %{CP="NOI DSP COR NID ADMa OPTa OUR NOR"}
+    [response, headers, body]
+  end
+end
+```
+
+# Old Readme
+
 IFrames in IE only get the same cookies as normal pages when P3P headers are added<br/>
 => 'iframe-using' IE users get P3P headers on every request<br/>
 304 Not modified pages do not get P3P headers (via ETag)<br/>
